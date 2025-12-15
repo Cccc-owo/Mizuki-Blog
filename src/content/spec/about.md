@@ -1,49 +1,29 @@
+你好啊\~
 
-This website is built with the **Astro** framework using the [Mizuki](https://github.com/matsuzaka-yuki/mizuki) theme.
+~~博主很懒，没有写什么东西~~
 
-::github{repo="matsuzaka-yuki/Mizuki"}
+## 站点日志
 
-## 🌟 Theme Features
+### 2025-12-15
 
-### 🎨 Design & User Experience
-- **Modern & Elegant Design** - Clean, minimalist interface with beautiful typography
-- **Fully Responsive** - Optimized for all devices from mobile to desktop
-- **Dark/Light Mode** - Automatic theme switching with smooth transitions
-- **Beautiful Typography** - Enhanced readability with JetBrains Mono font
-- **Smooth Animations** - Fluid page transitions and interactive elements
+迁移至基于 [Astro](https://github.com/withastro/astro) 的 [Mizuki 主题](https://github.com/matsuzaka-yuki/Mizuki)。
 
-### 🔍 Content & Search
-- **Advanced Search** - Powered by [Pagefind](https://pagefind.app/) for fast, accurate results
-- **Enhanced Markdown** - Extended syntax with code highlighting and math support
-- **Interactive Table of Contents** - Auto-scroll navigation for long articles
-- **RSS Feed Generation** - Stay updated with automatic feed generation
-- **Reading Time Estimation** - Know how long articles take to read
-- **Post Categorization** - Organize content with tags and categories
+### 2022-12-16
 
+将博客主题自[Yun](https://github.com/YunYouJun/hexo-theme-yun)迁移至[Fluid](https://github.com/fluid-dev/hexo-theme-fluid)
 
+### 2022-08-16
 
-### 📱 Special Pages
-- **Anime Tracking Page** - Track your anime watching progress with ratings
-- **Friends Links Page** - Showcase friend websites with beautiful cards
-- **Diary/Moments Page** - Share life moments like social media posts
-- **Archive Page** - Organized timeline view of all posts
-- **About Page** - Customizable personal introduction (this page!)
+新域名：<https://blog.iscccc.eu.org/>
 
-### 🛠 Technical Features
-- **Enhanced Code Blocks** - Powered by [Expressive Code](https://expressive-code.com/)
-- **Math Support** - LaTeX rendering with KaTeX for mathematical expressions
-- **Image Optimization** - PhotoSwipe gallery with lazy loading
-- **SEO Optimized** - Built-in sitemap and meta tags for better search visibility
-- **Performance Optimized** - Fast loading with caching and optimization
-- **Comment System Ready** - Integration support for Twikoo comments
+### 2022-02-07
 
-### 🎯 Advanced Markdown Features
-- **Callouts & Admonitions** - Beautiful info boxes with `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`
-- **Mathematical Equations** - Write LaTeX math with `$inline$` and `$$block$$` syntax
-- **GitHub Cards** - Embed repository cards with `::github{repo="user/repo"}`
-- **Syntax Highlighting** - Advanced code highlighting with line numbers
-- **Copy Code Buttons** - Easy code copying functionality
+将博客主题自[Volantis](https://github.com/volantis-x/hexo-theme-volantis)迁移至[Yun](https://github.com/YunYouJun/hexo-theme-yun)
 
----
+### 2022-02-05
 
-*Built with ❤️ using Astro and inspired by modern web design principles.*
+将博客主题自[Yun](https://github.com/YunYouJun/hexo-theme-yun)迁移至[Volantis](https://github.com/volantis-x/hexo-theme-volantis)
+
+### 2021-10-02
+
+将博客主题自[Next](https://github.com/next-theme/hexo-theme-next)迁移至[yun](https://github.com/YunYouJun/hexo-theme-yun)
