@@ -16,7 +16,9 @@ updated: 2025-01-02
 ## 2.1 导数
 
 **定义 1.1**  设函数 $y=f(x)$ 在点 $x_0$ 及其附近有定义，如果极限
-$$\lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}$$
+$$
+\lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
+$$
 存在，则称函数 $f(x_0)$ 在 $x_0$ 处可导，并且称这个极限值为 $f(x)$ 在 $x_0$ 处的导数，**记作 ${f'}(x_0)$**，或 $\frac{\mathrm{d} f}{\mathrm{d} x}|_{x=x_0}$，或 $\frac{\mathrm{d} y}{\mathrm{d} x}|_{x=x_0}$，或 ${y}'|_{x=x_0}$.
 
 或$f'(x)=\lim_{? \to 0}{\frac{f(x+?)-f(x)}{?}}=\lim_{? \to x}{\frac{f(?)-f(x)}{?-x}}$
@@ -76,15 +78,21 @@ $\int \log_{a}{x}\mathrm{d}x=\frac{1}{\ln{a}} \int \ln{x} \mathrm{d}x=\frac{1}{\
 ## 高阶导数
 
 若函数$u(x)$与$v(x)$均存在直到$n$阶导数，则它们的乘积也$n$阶可导，则有下述所谓的莱布尼茨公式：
-$$[u(x)v(x)]^{(x)}=\sum_{k=0}^{n} C_n^k u^{(n-k)}(x) \ v^{(k)}(x)$$
+$$
+[u(x)v(x)]^{(x)}=\sum_{k=0}^{n} C_n^k u^{(n-k)}(x) \ v^{(k)}(x)
+$$
 其中
-$$C_n^k=\frac{n(n-1) \cdots (n-k+1)}{k!}$$
+$$
+C_n^k=\frac{n(n-1) \cdots (n-k+1)}{k!}
+$$
 
 ## 泰勒公式
 
 麦克劳林公式：
 
-$$f(x)=f(0)+\frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\cdots +\frac{f^{(n)}(0)}{n!}x^n+o(x^n)$$
+$$
+f(x)=f(0)+\frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\cdots +\frac{f^{(n)}(0)}{n!}x^n+o(x^n)
+$$
 
 部分常用函数的麦克劳林公式：
 
@@ -117,7 +125,9 @@ $\tan x = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + o(x^5)$
 设函数$f(x)$在$x_0$处连续，且在$x_0$点两侧凸凹性相反，则称点$(x_0,f(x_0))$为曲线的**拐点**。
 
 可以证明，若$f''(x)$在$x_0$处存在，且$(x_0,f(x_0))$是拐点，则
-$$f''(x_0)=0$$
+$$
+f''(x_0)=0
+$$
 
 但是$f''(x_0)=0$的点$x_0$未必使$(x_0,f(x_0))$成为拐点。
 
@@ -126,38 +136,60 @@ $$f''(x_0)=0$$
 ### 弧微分
 
 弧长微分公式：
-$$\mathrm{d}s=\sqrt{1+y'^2}\mathrm{d}x$$
+$$
+\mathrm{d}s=\sqrt{1+y'^2}\mathrm{d}x
+$$
 
 微分三角关系（勾股关系）：
-$$\mathrm{d}s^2=\mathrm{d}x^2+\mathrm{d}y^2$$
+$$
+\mathrm{d}s^2=\mathrm{d}x^2+\mathrm{d}y^2
+$$
 
 若曲线弧是由参数方程$x=\varphi(t),y=\psi(t),\ \alpha \le t \le \beta$或极坐标方程$\rho=\rho(\theta),\ \alpha \le \theta \le \beta$给出，且$\varphi(t),y=\psi(t),\rho(\theta)$均有连续导数，则分别有弧长微分公式：
-$$\mathrm{d}s=\sqrt{[\varphi'(t)]^2+[\psi'(t)]^2}\mathrm{d}t$$
+$$
+\mathrm{d}s=\sqrt{[\varphi'(t)]^2+[\psi'(t)]^2}\mathrm{d}t
+$$
 与
-$$\mathrm{d}s=\sqrt{[\rho(\theta)]^2+[\rho'(\theta)]^2}\mathrm{d}\theta$$
+$$
+\mathrm{d}s=\sqrt{[\rho(\theta)]^2+[\rho'(\theta)]^2}\mathrm{d}\theta
+$$
 
 ### 曲线的曲率
 
 设在直角坐标系下曲线方程是$y=f(x)$，且$f(x)$具有二阶导数。则曲率为
-$$k=|\frac{y''}{[1+(y')^2]^{\frac{3}{2}}}|$$
+$$
+k=|\frac{y''}{[1+(y')^2]^{\frac{3}{2}}}|
+$$
 
 如果曲线由参数方程$x=\varphi(t),y=\psi(t)$或极坐标方程$\rho=\rho(\theta)$给出，且$\varphi(t),y=\psi(t),\rho(\theta)$均二阶可导，则
-$$k=|\frac{x'_ty''_t-x''_ty'_t}{(x'^2_t+y'^2_t)^{\frac{3}{2}}}|$$
+$$
+k=|\frac{x'_ty''_t-x''_ty'_t}{(x'^2_t+y'^2_t)^{\frac{3}{2}}}|
+$$
 或
-$$k=|\frac{\rho^2+2\rho'^2-\rho\rho''}{(\rho^2+\rho'^2)^{\frac{3}{2}}}|$$
+$$
+k=|\frac{\rho^2+2\rho'^2-\rho\rho''}{(\rho^2+\rho'^2)^{\frac{3}{2}}}|
+$$
 
 ## 定积分的概念
 
 设函数$f(x)$在区间$[a,\ b]$上有定义，在$[a,\ b]$内任意插入$n-1$个分点
-$$a=x_0<x_1<x_2<\cdots<x_{n-1}<x_n=b$$
+$$
+a=x_0<x_1<x_2<\cdots<x_{n-1}<x_n=b
+$$
 记此分法为$\Delta$。任取$\xi_k \in [x_{k-1},\ x_k],\ k=1,2,\cdots,n$，作和式
-$$S(\Delta,\ \xi)=\sum_{k=1}^{n} f(\xi_n)\Delta x_k$$
+$$
+S(\Delta,\ \xi)=\sum_{k=1}^{n} f(\xi_n)\Delta x_k
+$$
 其中$\Delta x_k=x_k-x_{k-1}, \xi=\{ \xi_k \}$。$S(\Delta,\ \xi)$称为$f(x)$在$[a,\ b]$上的**积分和**（或**黎曼和**）。
 
 令$d(\Delta)=max\{ \Delta x_1, \Delta x_2, \cdots, \Delta x_n \}$，若极限
-$$\lim_{d(\Delta) \to 0}S(\Delta,\ \xi)=\lim_{d(\Delta) \to 0}\sum_{k=1}^{n}f(\xi_k)\Delta x_k$$
+$$
+\lim_{d(\Delta) \to 0}S(\Delta,\ \xi)=\lim_{d(\Delta) \to 0}\sum_{k=1}^{n}f(\xi_k)\Delta x_k
+$$
 存在，且与分法$\Delta$及$\xi$的选取无关，则称$f(x)$在$[a,\ b]$可积，称此极限值为函数$f(x)$在$[a,\ b]$上的定积分，记作$\int_{a}^{b}f(x) \mathrm{d}x$，即
-$$\int_{a}^{b}f(x) \mathrm{d}x=lim_{d(\Delta)\to0}\sum_{k=1}^{n}f(\xi_k)\Delta x_k$$
+$$
+\int_{a}^{b}f(x) \mathrm{d}x=lim_{d(\Delta)\to0}\sum_{k=1}^{n}f(\xi_k)\Delta x_k
+$$
 
 ## 定积分的应用
 
@@ -169,7 +201,9 @@ $$\int_{a}^{b}f(x) \mathrm{d}x=lim_{d(\Delta)\to0}\sum_{k=1}^{n}f(\xi_k)\Delta x
 
 所求面积为：
 
-$$S=\int_{a}^{b} [f(x)-g(x)] \mathrm{d}x$$
+$$
+S=\int_{a}^{b} [f(x)-g(x)] \mathrm{d}x
+$$
 
 #### 极坐标系下平面图形的面积
 
@@ -179,32 +213,46 @@ $$S=\int_{a}^{b} [f(x)-g(x)] \mathrm{d}x$$
 
 所求面积为：
 
-$$S=\int_{\alpha}^{\beta} \mathrm{d} S=\frac{1}{2} \int_{\alpha}^{\beta} r^{2}(\theta) \mathrm{d} \theta$$
+$$
+S=\int_{\alpha}^{\beta} \mathrm{d} S=\frac{1}{2} \int_{\alpha}^{\beta} r^{2}(\theta) \mathrm{d} \theta
+$$
 
 同理，设图形是极坐标方程$r=r_1(\theta),r=r_2(\theta)(r_2(\theta)\ge r(\theta))$确定的二曲线与射线$\theta = \alpha$、$\theta=\beta (\beta >\alpha)$所围成，其面积
 
-$$S=\frac{1}{2} \int_{\alpha}^{\beta}\left[r_{2}^{2}(\theta)-r_{1}^{2}(\theta)\right] \mathrm{d} \theta$$
+$$
+S=\frac{1}{2} \int_{\alpha}^{\beta}\left[r_{2}^{2}(\theta)-r_{1}^{2}(\theta)\right] \mathrm{d} \theta
+$$
 
 #### 用参数方程表示的曲线所围成的平面图形的面积
 
 如果所给曲线方程为参数形式
-$$\left\{\begin{matrix}
+$$
+\left\{\begin{matrix}
   x=\varphi(t), \\
   y=\psi(t),
-\end{matrix}\right. \ \alpha \le t \le \beta$$
+\end{matrix}\right. \ \alpha \le t \le \beta
+$$
 其中$\varphi(t)$单调增加，且$\varphi(\alpha)=a, \varphi(\beta)=b,\varphi'(t) \in C [\alpha,\ \beta]$，则由以上曲线、$x$轴及直线$x=a,x=b$所围成的平面图形面积：
-$$S=\int_{\alpha}^{\beta}|\psi(t)|\varphi'(t)\mathrm{d}t$$
+$$
+S=\int_{\alpha}^{\beta}|\psi(t)|\varphi'(t)\mathrm{d}t
+$$
 
 ### 平面曲线的弧长
 
 在$[a,\ b]$上作定积分，得到弧$\stackrel\frown{AB}$的长度
-$$s=\int_a^b\sqrt{1+(y')^2}\mathrm{d}x$$
+$$
+s=\int_a^b\sqrt{1+(y')^2}\mathrm{d}x
+$$
 
 当弧$\stackrel\frown{AB}$由参数方程$x=\varphi(t),y=\psi(t),\ \alpha \le t \le \beta$表示时，得
-$$s=\int_a^b\sqrt{[\varphi'(t)]^2+[\psi'(t)]^2}\mathrm{d}t$$
+$$
+s=\int_a^b\sqrt{[\varphi'(t)]^2+[\psi'(t)]^2}\mathrm{d}t
+$$
 
 或极坐标方程$\rho=\rho(\theta),\ \alpha \le \theta \le \beta$表示时，得
-$$s=\int_a^b\sqrt{[r(\theta)]^2+[r'(\theta)]^2}\mathrm{d}\theta$$
+$$
+s=\int_a^b\sqrt{[r(\theta)]^2+[r'(\theta)]^2}\mathrm{d}\theta
+$$
 
 ### 平行截面积为已知的空间立体体积
 
@@ -216,13 +264,19 @@ $$s=\int_a^b\sqrt{[r(\theta)]^2+[r'(\theta)]^2}\mathrm{d}\theta$$
 ![][1]
 
 于是根据微元法，所求立体体积
-$$V=\int_a^b \mathrm{d}V = \int_a^bS(x)\mathrm{d}x$$
+$$
+V=\int_a^b \mathrm{d}V = \int_a^bS(x)\mathrm{d}x
+$$
 
 旋转体体积：
-$$V=\int_a^bS(x) \mathrm{d}x = \pi\int_a^b[f(x)]^2\mathrm{d}x$$
+$$
+V=\int_a^bS(x) \mathrm{d}x = \pi\int_a^b[f(x)]^2\mathrm{d}x
+$$
 
 薄壳法：
-$$V=\int_a^b \mathrm{d}V = 2\pi\int_a^bxf(x)\mathrm{d}x,\ f(x) \ge 0,\ b > a \ge 0$$
+$$
+V=\int_a^b \mathrm{d}V = 2\pi\int_a^bxf(x)\mathrm{d}x,\ f(x) \ge 0,\ b > a \ge 0
+$$
 
 ### 旋转体的侧面积
 
@@ -231,13 +285,19 @@ $$V=\int_a^b \mathrm{d}V = 2\pi\int_a^bxf(x)\mathrm{d}x,\ f(x) \ge 0,\ b > a \ge
 ![][2]
 
 于是旋转体的侧面积
-$$S=\int_a^b \mathrm{d}S=2\pi \int_a^b f(x) \sqrt{1+[f'(x)]^2} \mathrm{d}x$$
+$$
+S=\int_a^b \mathrm{d}S=2\pi \int_a^b f(x) \sqrt{1+[f'(x)]^2} \mathrm{d}x
+$$
 
 如果曲线由参数方程$x=\varphi(t),y=\psi(t),\ \alpha \le t \le \beta$表示，则旋转体的侧面积
-$$S=2\pi \int_\alpha^\beta \psi(t)\sqrt{[\varphi'(t)]^2+[\psi'(t)]^2}\mathrm{d}t$$
+$$
+S=2\pi \int_\alpha^\beta \psi(t)\sqrt{[\varphi'(t)]^2+[\psi'(t)]^2}\mathrm{d}t
+$$
 
 如果曲线由极坐标方程$r=r(\theta),\ \alpha \le \theta \le \beta$表示，则旋转体的侧面积
-$$S=2\pi\int_\alpha^\beta r(\theta) \sin\theta \sqrt{[r(\theta)]^2+[r'(\theta)]^2} \mathrm{d}\theta$$
+$$
+S=2\pi\int_\alpha^\beta r(\theta) \sin\theta \sqrt{[r(\theta)]^2+[r'(\theta)]^2} \mathrm{d}\theta
+$$
 
 <!-- Q.E.D. -->
 
