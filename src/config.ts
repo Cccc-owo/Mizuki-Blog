@@ -374,7 +374,7 @@ export const permalinkConfig: PermalinkConfig = {
 	 *
 	 * 注意：不支持斜杠 "/"，所有生成的链接都在根目录下
 	 */
-	format: "%post_id%", // 默认使用文件名
+	format: "post-%post_id%", // 默认使用文件名
 };
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
