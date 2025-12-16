@@ -1,0 +1,86 @@
+﻿name: Sync Upstream
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    # 每天北京时间早上 8:00 运行 (UTC 0:00)
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+    # 允许手动触发
+    inputs:
+      upstream_repo:
+        description: "上游仓库(格式: owner/repo)"
+        required: true
+        default: "matsuzaka-yuki/Mizuki"
+      upstream_branch:
+        description: "上游分支"
+        required: true
+        default: "master"
+      target_branch:
+        description: "本地分支"
+        required: true
+        default: "master"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target repo
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.target_branch }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Sync Process
+        env:
+          UPSTREAM_REPO: ${{ inputs.upstream_repo }}
+          UPSTREAM_BRANCH: ${{ inputs.upstream_branch }}
+          TARGET_BRANCH: ${{ inputs.target_branch }}
+        run: |
+          # Setup Upstream
+          git remote add upstream "https://github.com/$UPSTREAM_REPO.git"
+          git fetch upstream $UPSTREAM_BRANCH
+
+          # Chect upstream changes
+          if git merge-base --is-ancestor upstream/$UPSTREAM_BRANCH HEAD; then
+            echo "✅ No updates found. Local branch is already up-to-date or ahead of upstream."
+            exit 0
+          fi
+
+          # Try Fast-Forward
+          if git merge --ff-only upstream/$UPSTREAM_BRANCH; then
+            echo "✅ Fast-forward successful!"
+            git push origin $TARGET_BRANCH
+            exit 0
+          fi
+
+          # Try Merge with Custom Message
+          echo "🔄 Diverged history. Attempting merge with custom message..."
+
+          # Custom Merge Message
+          MERGE_MSG="🔀 sync: Merge updates from $UPSTREAM_REPO"
+
+          if git merge upstream/$UPSTREAM_BRANCH -m "$MERGE_MSG"; then
+            echo "✅ Merge successful!"
+            git push origin $TARGET_BRANCH
+            exit 0
+          else
+            echo "❌ Merge conflict detected!"
+            git merge --abort
+          fi
+
+          # 4. Conflict Resolution
+          TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+          CONFLICT_BRANCH="sync-conflict-$TIMESTAMP"
+          git checkout -b $CONFLICT_BRANCH upstream/$UPSTREAM_BRANCH
+          git push origin $CONFLICT_BRANCH
+          echo "⚠️ Conflict detected. Created branch '$CONFLICT_BRANCH'."
+          exit 0
