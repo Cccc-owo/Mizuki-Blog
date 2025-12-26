@@ -5,8 +5,7 @@ permissions:
 
 on:
   schedule:
-    # 每天北京时间早上 8:00 运行 (UTC 0:00)
-    - cron: "0 0 * * *"
+    - cron: "0 0 * * 5"
   workflow_dispatch:
     # 允许手动触发
     inputs:
@@ -27,10 +26,23 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Variables
+        id: config
+        run: |
+          if [ "${{ github.event_name }}" == "schedule" ]; then
+            echo "TARGET_BRANCH=master" >> $GITHUB_ENV
+            echo "UPSTREAM_REPO=matsuzaka-yuki/Mizuki" >> $GITHUB_ENV
+            echo "UPSTREAM_BRANCH=master" >> $GITHUB_ENV
+          else
+            echo "TARGET_BRANCH=${{ inputs.target_branch }}" >> $GITHUB_ENV
+            echo "UPSTREAM_REPO=${{ inputs.upstream_repo }}" >> $GITHUB_ENV
+            echo "UPSTREAM_BRANCH=${{ inputs.upstream_branch }}" >> $GITHUB_ENV
+          fi
+
       - name: Checkout target repo
         uses: actions/checkout@v6
         with:
-          ref: ${{ inputs.target_branch }}
+          ref: ${{ env.TARGET_BRANCH }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -40,11 +52,11 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Sync Process
-        env:
-          UPSTREAM_REPO: ${{ inputs.upstream_repo }}
-          UPSTREAM_BRANCH: ${{ inputs.upstream_branch }}
-          TARGET_BRANCH: ${{ inputs.target_branch }}
         run: |
+          # Print env variables
+          echo "Syncing from: $UPSTREAM_REPO ($UPSTREAM_BRANCH)"
+          echo "Target branch: $TARGET_BRANCH"
+
           # Setup Upstream
           git remote add upstream "https://github.com/$UPSTREAM_REPO.git"
           git fetch upstream $UPSTREAM_BRANCH
